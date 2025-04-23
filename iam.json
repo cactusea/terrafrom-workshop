@@ -1,0 +1,75 @@
+{
+  "User1": {
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Effect": "Allow",
+        "Action": "ec2:*",
+        "Resource": "*"
+      },
+      {
+        "Effect": "Deny",
+        "Action": "ec2:TerminateInstances",
+        "Resource": "*"
+      }
+    ]
+  },
+
+  "User2": {
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Effect": "Allow",
+        "Action": [
+          "logs:Describe*",
+          "logs:Get*",
+          "logs:List*",
+          "logs:StartQuery",
+          "logs:StopQuery",
+          "logs:TestMetricFilter",
+          "logs:FilterLogEvents"
+        ],
+        "Resource": "*"
+      },
+      {
+        "Effect": "Allow",
+        "Action": [
+          "s3:GetObject",
+          "s3:ListBucket",
+          "s3:GetBucketLocation",
+          "s3:ListAllMyBuckets"
+        ],
+        "Resource": "*"
+      },
+      {
+        "Effect": "Allow",
+        "Action": ["s3:PutObject"],
+        "Resource": "*"
+      }
+    ]
+  },
+
+  "User3": {
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Effect": "Allow",
+        "Action": [
+          "logs:CreateLogGroup",
+          "logs:CreateLogStream",
+          "logs:PutLogEvents"
+        ],
+        "Resource": "arn:aws:logs:*:*:*"
+      },
+      {
+        "Effect": "Allow",
+        "Action": [
+          "s3:ListBucket",
+          "s3:GetBucketLocation",
+          "s3:ListAllMyBuckets"
+        ],
+        "Resource": "*"
+      }
+    ]
+  }
+}
